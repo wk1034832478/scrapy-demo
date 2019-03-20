@@ -8,4 +8,5 @@
 
 class FirstPipeline(object):
     def process_item(self, item, spider):
+        spider.logger.info('自定义PipeLine')
         return item

@@ -80,12 +80,16 @@ COOKIES_ENABLED = False
 #EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
+# EXTENSIONS = {
+#     'scrapy_jsonrpc.webservice.WebService': 500,
+# }
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'first.pipelines.FirstPipeline': 300,
-#}
+# 设置pipeline， 数字越低，优先级就越高
+ITEM_PIPELINES = {
+   'first.pipelines.FirstPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -107,6 +111,8 @@ COOKIES_ENABLED = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+#JSONRPC_ENABLED = True
+
 from scrapy.exporters import JsonLinesItemExporter  
 class CustomJsonLinesItemExporter(JsonLinesItemExporter):  
     def __init__(self, file, **kwargs):  
